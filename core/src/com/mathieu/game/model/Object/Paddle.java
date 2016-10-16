@@ -6,8 +6,13 @@ import com.mathieu.game.config.Enums;
 
 public class Paddle {
 
-    public static final float PADDLE_WIDTH = 1.75f;
-    public static final float PADDLE_HEIGHT = 0.25f;
+    public static final float PADDLE_WIDTH;
+    public static final float PADDLE_HEIGHT;
+
+    static {
+        PADDLE_HEIGHT = 0.25f;
+        PADDLE_WIDTH = 1.75f;
+    }
 
     private Vector2 acceleration;
     private Vector2 velocity;
@@ -16,7 +21,7 @@ public class Paddle {
     private Enums.State state;
     private float stateTime = 0;
 
-    public Paddle(){
+    private Paddle(){
         this.acceleration = new Vector2();
         this.velocity = new Vector2();
         this.position = new Vector2();

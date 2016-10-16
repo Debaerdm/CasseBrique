@@ -8,14 +8,17 @@ import com.badlogic.gdx.math.Vector2;
  */
 public abstract class Brick {
 
-    protected int point;
-    protected Vector2 position;
-    protected Rectangle bounds;
-    protected int life;
+    static final float HEIGHT;
+    static final float WIDTH;
 
-    public int getPoint() {
-        return point;
+    static {
+        WIDTH = 2f;
+        HEIGHT = 0.25f;
     }
+
+    Vector2 position;
+    Rectangle bounds;
+    int life;
 
     public Rectangle getBounds() {
         return bounds;

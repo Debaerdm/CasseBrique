@@ -11,7 +11,7 @@ public class World {
         this.createWorld();
     }
 
-    public void createWorld() {
+    private void createWorld() {
         this.level = new Level();
     }
 }

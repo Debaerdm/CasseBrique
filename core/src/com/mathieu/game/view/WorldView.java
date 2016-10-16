@@ -41,7 +41,11 @@ public class WorldView {
         this.drawPaddle();
     }
 
-    public void drawPaddle() {
+    private void drawBricks() {
+
+    }
+
+    private void drawPaddle() {
         this.shapeRenderer.setProjectionMatrix(camera.combined);
         this.shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         Paddle paddle = this.world.getLevel().getPaddle();
