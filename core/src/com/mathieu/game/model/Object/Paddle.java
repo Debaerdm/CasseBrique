@@ -1,18 +1,13 @@
-package com.mathieu.game.model.Object;
+package com.mathieu.game.model.object;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.mathieu.game.config.Enums;
 
+import static com.mathieu.game.config.Constance.PADDLE_HEIGHT;
+import static com.mathieu.game.config.Constance.PADDLE_WIDTH;
+
 public class Paddle {
-
-    public static final float PADDLE_WIDTH;
-    public static final float PADDLE_HEIGHT;
-
-    static {
-        PADDLE_HEIGHT = 0.25f;
-        PADDLE_WIDTH = 1.75f;
-    }
 
     private Vector2 acceleration;
     private Vector2 velocity;

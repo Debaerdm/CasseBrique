@@ -1,4 +1,4 @@
-package com.mathieu.game.Screen;
+package com.mathieu.game.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;

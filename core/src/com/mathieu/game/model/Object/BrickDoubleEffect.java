@@ -1,4 +1,4 @@
-package com.mathieu.game.model.Object;
+package com.mathieu.game.model.object;
 
 /**
  * Created by mathieu on 16/10/16.

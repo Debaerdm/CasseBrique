@@ -1,32 +1,31 @@
-package com.mathieu.game.model.Object;
+package com.mathieu.game.model.object;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class BrickSimple extends Brick {
-    private static final int POINT_SIMPLE;
+import static com.mathieu.game.config.Constance.DEFAULT_LIFE_BRICK;
+import static com.mathieu.game.config.Constance.POINT_BRICK_SIMPLE;
 
-    static {
-        POINT_SIMPLE = 100;
-    }
+public final class BrickSimple extends Brick {
+
 
     private BrickSimple(){
+        this.life = DEFAULT_LIFE_BRICK;
         this.position = new Vector2();
         this.bounds = new Rectangle();
     }
 
-    public BrickSimple(int life, float x, float y) {
+    public BrickSimple(float x, float y, float width, float height) {
         this();
-        this.life = life;
         this.position = new Vector2(x,y);
-        this.bounds.width = WIDTH;
-        this.bounds.height = HEIGHT;
-        this.bounds.x = this.position.x;
-        this.bounds.y = this.position.y;
+        this.bounds.setX(position.x);
+        this.bounds.setY(position.y);
+        this.bounds.width = width;
+        this.bounds.height = height;
     }
 
     @Override
     public int effect() {
-        return POINT_SIMPLE;
+        return POINT_BRICK_SIMPLE;
     }
 }

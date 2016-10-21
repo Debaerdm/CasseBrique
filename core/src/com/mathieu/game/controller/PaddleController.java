@@ -2,15 +2,19 @@ package com.mathieu.game.controller;
 
 import com.badlogic.gdx.math.Vector2;
 import com.mathieu.game.config.Enums;
-import com.mathieu.game.model.Object.Paddle;
+import com.mathieu.game.model.object.Paddle;
 
 import java.util.HashMap;
 
+import static com.mathieu.game.config.Constance.ACCELERATION;
+import static com.mathieu.game.config.Constance.DAMP;
+import static com.mathieu.game.config.Constance.MAX_VEL;
+import static com.mathieu.game.config.Constance.CAMERA_WIDTH;
+import static com.mathieu.game.config.Constance.PADDLE_WIDTH;
+
 public class PaddleController {
 
-    private static final float DAMP = 0.90f;
-    private static final float MAX_VEL = 6f;
-    private static final float ACCELERATION = 30f;
+
     private Paddle paddle;
     private static HashMap<Enums.Keys, Boolean> keys = new HashMap<Enums.Keys, Boolean>();
 
@@ -44,6 +48,7 @@ public class PaddleController {
 
         this.paddle.setAcceleration(new Vector2(this.paddle.getAcceleration().x * delta, this.paddle.getAcceleration().y * delta));
         this.paddle.getVelocity().add(this.paddle.getAcceleration().x, this.paddle.getAcceleration().y);
+
         if(this.paddle.getAcceleration().x == 0) {
             this.paddle.getVelocity().x *= DAMP;
         }
@@ -57,9 +62,17 @@ public class PaddleController {
         }
 
         this.paddle.update(delta);
+
+        if (this.paddle.getPosition().x < 0) {
+            this.paddle.getPosition().x = 0;
+        }
+
+        if (this.paddle.getPosition().x > CAMERA_WIDTH - PADDLE_WIDTH) {
+            this.paddle.getPosition().x = CAMERA_WIDTH - PADDLE_WIDTH;
+        }
     }
 
-    public boolean processInput() {
+    private boolean processInput() {
         if (keys.get(Enums.Keys.LEFT)) {
             this.paddle.setState(Enums.State.MOVE);
             this.paddle.getAcceleration().x = -ACCELERATION;

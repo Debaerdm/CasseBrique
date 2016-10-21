@@ -1,7 +1,8 @@
 package com.mathieu.game.model;
 
 public class World {
-    public Level level;
+
+    private Level level;
 
     public Level getLevel() {
         return level;
